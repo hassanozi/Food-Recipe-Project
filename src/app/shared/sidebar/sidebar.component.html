@@ -1,0 +1,26 @@
+<section class="bg-dark2">
+    <div class="text-center py-3">
+        <img src="../../../assets/images/sidebar-logo.svg" alt="" class="w-75">
+    </div>
+
+    <div class="mt-5">
+        <ul>
+
+            <ng-container *ngFor="let item of Menu">
+                <li *ngIf="item.isActive">
+                    <a [routerLink]="item.link" routerLinkActive="bg-main-trainsparent">
+                        <span><i [class]="item.icon"></i></span>
+                        <span class=" text-capitalize">{{item.text}}</span>
+                    </a>
+                </li>
+
+            </ng-container>
+
+
+        </ul>
+    </div>
+
+
+
+
+</section>

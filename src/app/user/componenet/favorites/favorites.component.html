@@ -1,0 +1,36 @@
+<section id="favorite">
+    <div class="header-page container">
+        <div class="row align-items-center">
+            <div class="col-8 text-white">
+                <h4>Favorite <span>items</span></h4>
+                <p class="mb-0">You can now delete or see your favorite items .</p>
+            </div>
+            <div class="col-4 text-end">
+                <img src="../../../../assets/images/profile 1.svg"  alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <hr>
+    <div class="container">
+        <div class="row py-3">
+            <div class="col-md-3" *ngFor="let item of tableRecipe">
+                <div class="item bg-white shadow position-relative w-100 card-container">
+                    <div class="text-center w-100">
+                        <img [src]="item.recipe.imagePath?imagePath+item.recipe.imagePath:dummyImage" class="card-image" alt="">
+                    </div>
+                    <div class="delete-icon">
+                        <a class="myPointer" (click)="removeItem(item.id)">
+                            <i class="fa-solid fa-trash-can text-danger"></i>
+                        </a>
+                    </div>
+                   <div class="p-2 card-body">
+                    <h4>{{item.recipe.name}}</h4>
+                    <p>{{item.recipe.description}}</p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

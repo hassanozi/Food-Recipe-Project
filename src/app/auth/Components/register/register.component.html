@@ -1,0 +1,115 @@
+<section id="register">
+    <div class="auth-form py-5">
+        <div class="text-center">
+            <img src="../../../assets/images/logo.svg" alt="">
+        </div>
+
+        <div class="px-5">
+            <h2>Register</h2>
+            <p>Welcome Back ! Please enter your details</p>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+
+                <div class="row">
+                    <div class="col-12">
+                        <ngx-dropzone (change)="onSelect($event)" class="rounded-circle w-25 m-auto mb-3" [multiple]="false" >
+                            <ngx-dropzone-label>Drop it</ngx-dropzone-label>
+                            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+                                <ngx-dropzone-label></ngx-dropzone-label>
+                              </ngx-dropzone-image-preview>
+                        </ngx-dropzone>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+                            <input formControlName="userName" type="text" class="form-control" placeholder="User name" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                                <div *ngIf="registerForm.get('email')?.getError('required')"></div>
+                        </div>
+                        <div *ngIf="registerForm.get('userName')?.errors && registerForm.get('userName')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
+                            <p class="mb-0" *ngIf="registerForm.get('userName')?.getError('required')">userName is required</p>
+                            <p class="mb-0" *ngIf="registerForm.get('userName')?.getError('userName')">Invalid Format</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+                            <input formControlName="email" type="text" class="form-control" placeholder="Enter your email" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                                <div *ngIf="registerForm.get('email')?.getError('required')"></div>
+                        </div>
+                        <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
+                            <p class="mb-0" *ngIf="registerForm.get('email')?.getError('required')">Email is required</p>
+                            <p class="mb-0" *ngIf="registerForm.get('email')?.getError('email')">Invalid Format</p>
+                        </div>
+                        
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+                            <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Enter your Phone" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                                <div *ngIf="registerForm.get('email')?.getError('required')"></div>
+                        </div>
+                        <div *ngIf="registerForm.get('phoneNumber')?.errors && registerForm.get('phoneNumber')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
+                            <p class="mb-0" *ngIf="registerForm.get('phoneNumber')?.getError('required')">phoneNumber is required</p>
+                            <p class="mb-0" *ngIf="registerForm.get('phoneNumber')?.getError('phoneNumber')">Invalid Format</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+                            <input formControlName="country" type="text" class="form-control" placeholder="Enter your country" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                                <div *ngIf="registerForm.get('country')?.getError('required')"></div>
+                        </div>
+                        <div *ngIf="registerForm.get('country')?.errors && registerForm.get('country')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
+                            <p class="mb-0" *ngIf="registerForm.get('country')?.getError('required')">country is required</p>
+                            <p class="mb-0" *ngIf="registerForm.get('country')?.getError('country')">Invalid Format</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3 position-relative">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                            <input formControlName="password" [type]="hide?'password':'text'" class="form-control" placeholder="Password" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                                <a class="show-password" (click)="this.hide= !this.hide">
+                                    <i class="fa-solid" [class]="hide?'fa-eye-slash':'fa-eye'"></i>
+                                </a>
+                        </div>
+                        <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger p-1 small w-100 mx-auto">
+                            <p class="m-0" *ngIf="registerForm.get('password')?.getError('required')">Password Is Required</p>
+                            <p class="mb-0" *ngIf="registerForm.get('password')?.getError('pattern')">Password Is Required must contain Mumbers , Chars , and Special Charctar.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3 position-relative">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                            <input formControlName="confirmPassword" [type]="hide?'password':'text'" class="form-control" placeholder="Confirm Password" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                                <a class="show-password" (click)="this.confirmHide= !this.confirmHide">
+                                    <i class="fa-solid" [class]="confirmHide?'fa-eye-slash':'fa-eye'"></i>
+                                </a>
+                        </div>
+                        <div *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched" class="alert alert-danger p-1 small w-100 mx-auto">
+                            <p class="m-0" *ngIf="registerForm.get('confirmPassword')?.getError('required')">confirmPassword Is Required</p>
+                            <p class="mb-0" *ngIf="registerForm.get('confirmPassword')?.getError('pattern')">confirmPassword Is Required must contain Mumbers , Chars , and Special Charctar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+               
+                <div class="d-flex justify-content-between my-2">
+                    <a class="text-second text-decoration-none " routerLink="/auth/login">Login Now?</a>
+                    <a (click)="openDialog()" class="text-main text-decoration-none ">Have a code?</a>
+                </div>
+                <button [disabled]="registerForm.invalid" class="text-white bg-main w-100">
+                    <span >Register</span>
+                    <span ><i class="fa-solid text-white"></i></span>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
