@@ -1,7 +1,9 @@
+[build]
   command = "npm ng build"
-  publish = "dist/Food-Recipe-Project"
+  publish = "dist/food-recipes-project"
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  
   
