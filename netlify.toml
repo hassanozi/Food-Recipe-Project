@@ -1,5 +1,5 @@
   command = "ng build"
-  publish = "dist/Food-Recipe-Project"
+  publish = "dist/hassan-foodrecipes-project"
 [[redirects]]
   from = "/*"
   to = "/index.html"
