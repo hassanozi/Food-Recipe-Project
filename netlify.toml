@@ -1,5 +1,7 @@
   command = "npm ng build"
   publish = "dist/Food-Recipe-Project"
+  command = "npm run build"
+  publish = "Food-Recipe-Project"
 [[redirects]]
   from = "/*"
   to = "/index.html"
