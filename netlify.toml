@@ -1,0 +1,7 @@
+  command = "ng build"
+  publish = "dist/hassan-foodrecipes-project"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  
