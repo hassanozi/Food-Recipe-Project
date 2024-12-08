@@ -1,4 +1,4 @@
-  command = "ng build"
+  command = "npm run build"
   publish = "dist/Food-Recipe-Project"
 [[redirects]]
   from = "/*"
