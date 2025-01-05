@@ -59,7 +59,7 @@ export class CategoriesComponent implements OnInit{
   
   openAddCategoryDialog(){
     const dialogRef = this.dialog.open(AddeditcategoryComponent, {
-      // data: {name: this.name, animal: this.animal},
+      data: '',
     });
 
     dialogRef.afterClosed().subscribe(result => {
