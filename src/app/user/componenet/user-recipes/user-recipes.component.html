@@ -85,7 +85,7 @@
                 </tr>
             </tbody>
         </table>
-        <mat-paginator [length]="tableResponse?.totalNumberOfRecords" [pageIndex]="tableResponse?.pageNumber"
+        <mat-paginator [length]="tableResponse?.totalNumberOfRecords" [pageIndex]="tableResponse?.pageIndex"
             [pageSize]="tableResponse?.pageSize" [pageSizeOptions]="pageSizeOptions" (page)="handlePageEvent($event)"
             aria-label="Select page">
         </mat-paginator>
